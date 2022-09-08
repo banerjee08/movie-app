@@ -1,3 +1,3 @@
-{
-    type: 'ADD_MOVIES'
-}
+// {
+//     type: 'ADD_MOVIES'
+// }
