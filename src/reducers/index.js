@@ -70,3 +70,15 @@ export default combineReducers({
   movies: movies,
   search: search
 })
+
+function sum(a,b){
+  return a+b;
+}
+console.log(sum(5,6));
+
+function curriedSum(a){
+  return function(b){
+    return a+b;
+  }
+}
+console.log(curriedSum(5)(7));
