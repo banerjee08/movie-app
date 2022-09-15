@@ -10,15 +10,22 @@ import rootReducer from './reducers'
 // curried function of:
 // function logger(obj, next, action)
 // redux will be doing something like logger(obj)(next)(action)
-const logger = function ({ dispatch, getState }){
-  return function (next){
-    return function (action){
-      // middleware code
-      console.log('ACTION_TYPE: ', action.type);
-      next(action)
-    }
-  }
+// const logger = function ({ dispatch, getState }){
+//   return function (next){
+//     return function (action){
+//       // middleware code
+//       console.log('ACTION_TYPE: ', action.type);
+//       next(action)
+//     }
+//   }
+// }
+
+// another way of writing the middleware logger function
+const logger = ({dispatch, getState}) => (next) => (action) => {
+  console.log('ACTION_TYPE: ', action.type);
+  next(action)
 }
+
 const store = createStore(rootReducer, applyMiddleware(logger));
 console.log('store', store)
 
