@@ -40,7 +40,7 @@ const logger = ({dispatch, getState}) => (next) => (action) => {
 // }
 
 
-const store = createStore(rootReducer, applyMiddleware(logger));
+const store = createStore(rootReducer, applyMiddleware(logger, thunk));
 console.log('store', store)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
