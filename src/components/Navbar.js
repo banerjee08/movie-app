@@ -31,8 +31,8 @@ class Navbar extends React.Component {
   };
 
   render() {
-    const { showSearchResults } = this.state;
-    const { result } = this.props.search;
+    // const { showSearchResults } = this.state;
+    const { result, showSearchResults } = this.props.search;
     return (
       <div className="nav">
         <div className="search-container">

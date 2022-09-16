@@ -6,7 +6,7 @@ import './index.css';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 import rootReducer from './reducers';
-import thunk from 'redux-thunk';
+// import thunk from 'redux-thunk';
 // import { configureStore } from '@reduxjs/toolkit'
 
 // curried function of:
@@ -31,13 +31,13 @@ const logger = ({dispatch, getState}) => (next) => (action) => {
   next(action)
 }
 
-// const thunk =  ({dispatch, getState}) => (next) => (action) => {
-//   if(typeof action === 'function'){
-//     action(dispatch);
-//     return;
-//   }
-//   next(action);
-// }
+const thunk =  ({dispatch, getState}) => (next) => (action) => {
+  if(typeof action === 'function'){
+    action(dispatch);
+    return;
+  }
+  next(action);
+}
 
 
 const store = createStore(rootReducer, applyMiddleware(logger, thunk));

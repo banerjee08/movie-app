@@ -56,7 +56,9 @@ export function search(state = initialSearchState, action) {
     case ADD_SEARCH_RESULT:
       return {
         ...state,
-        result: action.movie
+        result: action.movie,
+        showSearchResults: true
+
       }
     default:
       return state;
