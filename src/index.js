@@ -48,7 +48,7 @@ class Provider extends React.Component {
   render() {
     const { store } = this.props;
     return <StoreContext.Provider value={store}>
-      {this.props.childeren}
+      {this.props.children}
     </StoreContext.Provider>;
   }
 }
