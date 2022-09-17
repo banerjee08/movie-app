@@ -91,4 +91,12 @@ class AppWrapper extends React.Component {
   }
 }
 
-export default AppWrapper;
+function callback(state){
+  return{
+    movies: state.movie,
+    search: state.movies
+  }
+};
+const connectedAppComponent = connect(callback)(App);
+
+export default connectedAppComponent;

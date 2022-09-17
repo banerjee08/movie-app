@@ -58,17 +58,21 @@ export function search(state = initialSearchState, action) {
         ...state,
         result: action.movie,
         showSearchResults: true
-
+      }
+    case ADD_MOVIE_TO_LIST:
+      return {
+        ...state,
+        showSearchResults:false
       }
     default:
       return state;
   }
 }
 
-const initialRootState = {
-  movies: initialMoviesState,
-  search: initialSearchState,
-};
+// const initialRootState = {
+//   movies: initialMoviesState,
+//   search: initialSearchState,
+// };
 
 // export default function rootReducer(state = initialRootState, action) {
 //   return {
@@ -82,15 +86,3 @@ export default combineReducers({
   movies: movies,
   search: search
 })
-
-function sum(a,b){
-  return a+b;
-}
-console.log(sum(5,6));
-
-function curriedSum(a){
-  return function(b){
-    return a+b;
-  }
-}
-console.log(curriedSum(5)(7));
