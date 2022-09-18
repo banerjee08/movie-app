@@ -4,11 +4,10 @@ import Navbar from './Navbar';
 import MovieCard from './MovieCard';
 import { addMovies, setShowFavourites } from '../actions';
 import { connect } from '../index'
-import { StoreContext } from '../index'
 
 class App extends React.Component {
   componentDidMount() {
-    console.log('data', data);
+    console.log('hello',data);
     this.props.dispatch(addMovies(data));
   }
 
@@ -27,11 +26,9 @@ class App extends React.Component {
     this.props.dispatch(setShowFavourites(val));
   };
   render() {
-    const { movies, search } = this.props; // will return { movies: {}, search: []}
-    console.log('this.props.store', this.props.store);
-    const { list, showFavourites = [], favourites = [] } = movies;
+    const { list, showFavourites, favourites } = this.props.movies;
+    const { search } = this.props;
     const displayMovies = showFavourites ? favourites : list;
-
     return (
       <div className="App">
         <Navbar search={search} />
@@ -70,21 +67,10 @@ class App extends React.Component {
   }
 }
 
-class AppWrapper extends React.Component {
-  render(){
-    return (
-      <StoreContext.Consumer>
-        {
-          (store) => <App store={store}/>
-        }
-      </StoreContext.Consumer>      
-    )
-  }
-}
 
 function mapStateToProps(state){
   return{
-    movies: state.movie,
+    movies: state.movies,
     search: state.movies
   }
 };
