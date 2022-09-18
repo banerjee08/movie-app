@@ -16,6 +16,7 @@ export const ADD_MOVIE_TO_LIST = 'ADD_MOVIE_TO_LIST';
 
 // action creators 
 export function addMovies (movies){
+    console.log('movies', movies);
     return {
             type: ADD_MOVIES,
             movies: movies

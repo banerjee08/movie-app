@@ -4,9 +4,11 @@ import Navbar from './Navbar';
 import MovieCard from './MovieCard';
 import { addMovies, setShowFavourites } from '../actions';
 import { connect } from '../index'
+import { StoreContext } from '../index'
 
 class App extends React.Component {
   componentDidMount() {
+    console.log('data', data);
     this.props.dispatch(addMovies(data));
   }
 
@@ -26,7 +28,7 @@ class App extends React.Component {
   };
   render() {
     const { movies, search } = this.props; // will return { movies: {}, search: []}
-    console.log('movies', movies);
+    console.log('this.props.store', this.props.store);
     const { list, showFavourites = [], favourites = [] } = movies;
     const displayMovies = showFavourites ? favourites : list;
 
